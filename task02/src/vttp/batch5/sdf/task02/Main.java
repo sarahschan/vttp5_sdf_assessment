@@ -26,7 +26,7 @@ public class Main {
 
 
 		// If file is valid, continue wiith program
-		System.out.printf("Processing: %s\n", boardFile.getName());
+		System.out.printf("Processing: %s\n", boardFile.getPath());
 		System.out.println();
 
 		
