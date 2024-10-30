@@ -153,8 +153,8 @@ public class Main {
 		}
 	}
 
-	private static Boolean setHoliday(int ISHOLIDAY) {
-		if (ISHOLIDAY == 1) {
+	private static Boolean setHoliday(int iSHOLIDAY) {
+		if (iSHOLIDAY == 1) {
 			return true;
 
 		} else {
