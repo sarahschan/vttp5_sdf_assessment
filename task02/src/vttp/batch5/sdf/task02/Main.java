@@ -25,7 +25,7 @@ public class Main {
 		}
 
 
-		// If all good, continue wiith program
+		// If file is valid, continue wiith program
 		System.out.printf("Processing: %s\n", boardFile.getName());
 		System.out.println();
 
@@ -43,7 +43,28 @@ public class Main {
 			y1++;
 		}
 
+		// Check the board if it's X's turn to go
+		int countX = 0;
+		int countO = 0;
+		for (int y = 0; y < 3; y++) {
+			for (int x = 0; x < 3; x++) {
+				if (board[y][x] == 'X') {
+					countX++;
+				}
+				if (board[y][x] == 'O') {
+					countO++;
+				}
+
+			}
+		}
+
 		printBoard();
+
+		if (countX > countO) {
+			System.out.println("-".repeat(30));
+			System.out.printf("Error processing %s, it must be X's turn to go\n\n", boardFile.getName());
+			System.exit(-1);
+		}
 
 
 		// Create a map to store all the results
@@ -93,9 +114,11 @@ public class Main {
 
 	private static int minimax(int depth, boolean isMaximizer) {
 		// Check for base case
-		if (checkWin('X')) return 10 - depth;   	// You win (maximizer)
-		if (checkWin('O')) return depth - 10;   	// Computer win (minimizer)
+		if (checkWin('X')) return 1;   	// You win (maximizer)
+		if (checkWin('O')) return -1;   	// Computer win (minimizer)
 		if (checkTie(board)) return 0;          // Tie
+		if (depth == 1) return 0;				// Only looking 1 step ahead after the simulated placing of X
+												//	- neutral if 1 step ahead and no win/lose/tie
 	
 		int utilityValue;
 	
