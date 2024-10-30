@@ -64,7 +64,7 @@ public class Main {
 		// Error and exit if it is not X's turn to go
 		if (countX > countO) {
 			System.out.println("-".repeat(30));
-			System.out.printf("Error processing %s, it must be X's turn to go\n\n", boardFile.getName());
+			System.out.printf("Cannot process X's utility values for %s, it must be X's turn to go\n\n", boardFile.getName());
 			System.exit(-1);
 		}
 
