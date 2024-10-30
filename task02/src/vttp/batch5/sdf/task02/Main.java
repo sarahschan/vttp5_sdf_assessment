@@ -43,6 +43,9 @@ public class Main {
 			y1++;
 		}
 
+		printBoard();
+
+
 		// Check the board if it's X's turn to go
 		int countX = 0;
 		int countO = 0;
@@ -58,8 +61,7 @@ public class Main {
 			}
 		}
 
-		printBoard();
-
+		// Error and exit if it is not X's turn to go
 		if (countX > countO) {
 			System.out.println("-".repeat(30));
 			System.out.printf("Error processing %s, it must be X's turn to go\n\n", boardFile.getName());
@@ -67,6 +69,7 @@ public class Main {
 		}
 
 
+		// Otherwise if it's all good....
 		// Create a map to store all the results
 		List<String> utilityList = new ArrayList<>();
 		
